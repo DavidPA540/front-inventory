@@ -22,4 +22,11 @@ export class CategoryService {
     return this.http.get(endpoint);
   }
 
+  /**
+   * Insertar nueva categoria
+   */
+  saveCategories(body: any){
+    const endpoint = `${base_url}/categories`;
+    return this.http.post(endpoint,body);
+  }
 }
