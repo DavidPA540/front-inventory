@@ -108,6 +108,16 @@ export class CategoryComponent implements OnInit {
     });
   }
 
+  buscar(termino: string){
+      if(termino.length ===0){
+        return this.getCategories();
+      }
+      this.categoryService.getCategoriesById(termino)
+      .subscribe((resp: any)=>{
+        this.processCategoriesResponse(resp);
+      })
+  }
+
   openSnackBar(message : string, actions: string) : MatSnackBarRef<SimpleSnackBar>{
     return this.snackBar.open(message,actions,{
       duration: 2000
