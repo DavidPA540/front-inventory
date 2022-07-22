@@ -8,8 +8,7 @@ const base_url = environment.base_url;
   providedIn: 'root'
 })
 export class ProductService {
-
-  constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
   /**
    * get all the products
@@ -18,5 +17,14 @@ export class ProductService {
   getProducts(){
     const endpoint = `${base_url}/products`;
     return this.http.get(endpoint);
+  }
+
+  /**
+   * save the product
+   */
+
+  saveProduct(body:any){
+    const endpoint = `${base_url}/products`;
+    return this.http.post(endpoint,body);
   }
 }
