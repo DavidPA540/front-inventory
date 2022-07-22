@@ -42,7 +42,7 @@ export class ProductComponent implements OnInit {
       let listCProduct = resp.product.products;
 
         listCProduct.forEach( (element: ProductElement) => {
-          element.category = element.category.name;
+          //element.category = element.category.name;
           element.picture = 'dara:image/jpeg;base64,'+element.picture;
           dataProduct.push(element);
         });
@@ -74,6 +74,25 @@ export class ProductComponent implements OnInit {
       duration: 2000
     })
   }
+
+  edit(id:number,name:string,price:number,account:number,category:any){
+    const dialogRef = this.dialog.open(NewProductComponent, {
+      width: '450px',
+      data:{id: id,name:name,price:price,account:account,category:category}
+
+    });
+
+    dialogRef.afterClosed().subscribe((result:any) => {
+
+      if(result == 1){
+        this.openSnackBar("Producto Editado","Exito");
+        this.getProducts();
+      }else if(result == 2){
+        this.openSnackBar("Se produjo un error al editar el producto ","Error");
+      }
+    });
+  }
+
 
 }
 
