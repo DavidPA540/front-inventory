@@ -44,7 +44,7 @@ export class ProductComponent implements OnInit {
 
         listCProduct.forEach( (element: ProductElement) => {
           //element.category = element.category.name;
-          element.picture = 'dara:image/jpeg;base64,'+element.picture;
+          element.picture = 'data:image/jpeg;base64,'+element.picture;
           dataProduct.push(element);
         });
           //set teh datasource
