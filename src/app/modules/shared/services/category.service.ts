@@ -58,7 +58,7 @@ export class CategoryService {
 
 
   /**
-   *
+   * export excel
    */
    exportCategories(){
     const endpoint = `${base_url}/categories/export/excel`;
